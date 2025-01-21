@@ -1,0 +1,45 @@
+@keyframes bounce {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-1px) scale(1); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.container {
+    perspective: 1000px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.map {
+    max-width: 100%;
+    height: auto;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.spot {
+    fill: #ffffff;
+    transform-origin: center center;
+    animation: bounce 2s infinite alternate ease-in-out;
+}
+
+.line {
+    stroke: #3F6EB5;
+    stroke-width: 1;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.line.neon {
+    stroke: #00b7ff;
+    stroke-width: 1;
+    opacity: 1;
+    filter: drop-shadow(0 0 2px #00b7ff) 
+           drop-shadow(0 0 4px #00b7ff)
+           drop-shadow(0 0 6px #00b7ff);
+}
